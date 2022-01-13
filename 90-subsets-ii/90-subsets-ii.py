@@ -6,9 +6,5 @@ class Solution:
         nums.sort()
         
         for i in nums:
-            temp = []
-            for j in output:
-                if [i] + j not in output:
-                    temp.append([i] + j)
-            output += temp
+            output += [[i]+j for j in output if [i]+j not in output]
         return output
